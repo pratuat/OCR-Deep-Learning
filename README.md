@@ -1,6 +1,6 @@
-# A PROJECT ON OPTICAL CHARACTER RECOGNITION USING DEEP LEARNING
+# OPTICAL CHARACTER RECOGNITION USING DEEP LEARNING
 
-This a project completed as a part of course assignment for Data Mining Technology (2017/18), MS in Data Science, Sapienza University of Rome.
+A sample project for implementation of optical character recognition system using Deep Learning (KEARAS).
 
 ## 1. INTRODUCTION
 
@@ -16,8 +16,11 @@ This way we were able to generate 684320 data samples with corresponding class l
 
 ## 3. DESCRIPTION OF ANN MODEL
 
-This model design is influenced by VGG convolutional model, a model proposed for ILSVRC-2014 competetion. The principal design idea behind the class of model is the performance of small-sized (3X3) stacked convolutional kernels which has same effective receptive field as CNN with bigger kernel sizes but with higher depth and non- linearity and low computation cost. In general it takes high volume of training data for deep CNN layers to converge and hence a learning technique called Transfer Learning is often used. In this technique weighted layers from a pre-trained model (trained on other similar image classification task) are used either as an initialization or a fixed feature extractor for the task in hand. We applied similar technique to train our models in multiple sessions.
-We used keras functional API and tensorflow package to build neural network. In first session of the training, a bolck of CNN layers paired with dense layers was trained to classify inputs to **char** classes. We achieved around 80% accuracy for the classification within first few epochs of training. We then added new convolutional and dense layer blocks on thus pretrained model layers for second training session, i.e. classifying input by **fonts**. The layers from the first model are frozen such that these weights are not updated and hence they work as feature extractor for newer layers. Lastly for the third session we added two parallel dense layer blocks on the top of the model from second session to perform classification for **bold** and **italic** labels.
+This model design is influenced by VGG convolutional model, a model proposed for ILSVRC-2014 competetion. The principal design idea behind the class of model is the performance of small-sized (3X3) stacked convolutional kernels which has same effective receptive field as CNN with bigger kernel sizes but with higher depth and non- linearity and low computation cost.  
+
+It takes high volume of training data for deep CNN layers to converge and hence a learning technique called Transfer Learning is often used. In this technique weighted layers from a pre-trained model (trained on other similar image classification task) are used either as an initialization or a fixed feature extractor for the task in hand. We applied similar technique to train our models in multiple sessions.  
+
+We used **keras** functional API and **tensorflow** package to build neural network. In first session of the training, a bolck of CNN layers paired with dense layers was trained to classify inputs to **char** classes. We achieved around 80% accuracy for the classification within first few epochs of training. We then added new convolutional and dense layer blocks on thus pretrained model layers for second training session, i.e. classifying input by **fonts**. The layers from the first model are frozen such that these weights are not updated and hence they work as feature extractor for newer layers. Lastly for the third session we added two parallel dense layer blocks on the top of the model from second session to perform classification for **bold** and **italic** labels.
 
 ## 4. MODEL PERFORMANCE ON TRAINING AND TEST DATA
 
